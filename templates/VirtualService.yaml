@@ -1,0 +1,25 @@
+{{- if .Values.VirtualService.enabled }}
+apiVersion: networking.istio.io/v1beta1
+kind: VirtualService
+metadata:
+  name: {{ $.Release.Name }}
+spec:
+  gateways:
+  - {{ $.Release.Name }}
+  {{- range .Values.VirtualService.hosts }}  
+  hosts:
+  - {{ .host | quote }}
+   
+    {{- end }}
+  {{- with .Values.VirtualService.paths }}  
+  http:
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
+    route:
+    - destination:
+        host: {{ $.Release.Name }}
+        port:
+          number: 80
+    
+{{- end }}
+

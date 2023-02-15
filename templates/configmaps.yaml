@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ $.Release.Name }}
+data:
+{{- range $name, $value := .Values.Config.ENV.App }}
+{{- if not (empty $value) }}
+  {{ $name }}: {{ $value | quote }}
+{{- end }}
+{{- end }}
+
