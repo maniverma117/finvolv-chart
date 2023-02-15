@@ -1,0 +1,19 @@
+apiVersion: v1
+entries:
+  finvolv:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-02-15T23:38:49.3663638+05:30"
+    dependencies:
+    - condition: common.enabled
+      name: common
+      repository: ""
+      version: 1.16.0
+    description: A Helm chart for Kubernetes
+    digest: fcbceed3421a993196237128142ca68c5a4b45cc8070e321d3df51963bb43c66
+    name: finvolv
+    type: application
+    urls:
+    - https://maniverma117.github.io/finvolv-chart/finvolv-0.1.0.tgz
+    version: 0.1.0
+generated: "2023-02-15T23:38:49.3517732+05:30"
